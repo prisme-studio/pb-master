@@ -7,10 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3989272724007EC300099F3C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3989272624007EC300099F3C /* main.cpp */; };
+		397B3C7124008BA7005AD8A9 /* libcommon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3989277224008A4F00099F3C /* libcommon.a */; };
+		397B3C7224008BA7005AD8A9 /* libcommon.a in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 3989277224008A4F00099F3C /* libcommon.a */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		397B3C7424008BAF005AD8A9 /* libnetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3989276F24008A4800099F3C /* libnetwork.a */; };
+		397B3C7524008BAF005AD8A9 /* libnetwork.a in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 3989276F24008A4800099F3C /* libnetwork.a */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		397B3C7624008BB3005AD8A9 /* libpb-common.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3989276C24008A4100099F3C /* libpb-common.a */; };
+		397B3C7724008BB3005AD8A9 /* libpb-common.a in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 3989276C24008A4100099F3C /* libpb-common.a */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		3989274624007F0500099F3C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3989272D24007F0400099F3C /* main.cpp */; };
+		3989274724007F0500099F3C /* TrackingEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3989272F24007F0400099F3C /* TrackingEngine.cpp */; };
+		3989274824007F0500099F3C /* Core.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3989273324007F0500099F3C /* Core.cpp */; };
+		3989274924007F0500099F3C /* TerminalServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3989273524007F0500099F3C /* TerminalServer.cpp */; };
+		3989274A24007F0500099F3C /* TrackersServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3989273624007F0500099F3C /* TrackersServer.cpp */; };
+		3989274B24007F0500099F3C /* NetworkManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3989273924007F0500099F3C /* NetworkManager.cpp */; };
+		3989274C24007F0500099F3C /* TrackersJSONServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3989273A24007F0500099F3C /* TrackersJSONServer.cpp */; };
+		3989274E24007F0500099F3C /* LayoutEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3989274024007F0500099F3C /* LayoutEngine.cpp */; };
+		3989277624008B2000099F3C /* libprotobuf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3989277524008B2000099F3C /* libprotobuf.a */; };
+		3989277824008B3000099F3C /* libboost_program_options.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3989277724008B3000099F3C /* libboost_program_options.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		397B3C7324008BA7005AD8A9 /* Embed Libraries */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				397B3C7724008BB3005AD8A9 /* libpb-common.a in Embed Libraries */,
+				397B3C7524008BAF005AD8A9 /* libnetwork.a in Embed Libraries */,
+				397B3C7224008BA7005AD8A9 /* libcommon.a in Embed Libraries */,
+			);
+			name = "Embed Libraries";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3989272124007EC300099F3C /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -23,8 +51,36 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		397B3C7824008BC9005AD8A9 /* pb-master.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "pb-master.entitlements"; sourceTree = "<group>"; };
 		3989272324007EC300099F3C /* pb-master */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "pb-master"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3989272624007EC300099F3C /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		3989272D24007F0400099F3C /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		3989272F24007F0400099F3C /* TrackingEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TrackingEngine.cpp; sourceTree = "<group>"; };
+		3989273024007F0400099F3C /* TrackingEngineDelegate.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TrackingEngineDelegate.hpp; sourceTree = "<group>"; };
+		3989273124007F0400099F3C /* TrackingEngine.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TrackingEngine.hpp; sourceTree = "<group>"; };
+		3989273324007F0500099F3C /* Core.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Core.cpp; sourceTree = "<group>"; };
+		3989273524007F0500099F3C /* TerminalServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TerminalServer.cpp; sourceTree = "<group>"; };
+		3989273624007F0500099F3C /* TrackersServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TrackersServer.cpp; sourceTree = "<group>"; };
+		3989273724007F0500099F3C /* NetworkManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = NetworkManager.hpp; sourceTree = "<group>"; };
+		3989273824007F0500099F3C /* TrackersJSONServer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TrackersJSONServer.hpp; sourceTree = "<group>"; };
+		3989273924007F0500099F3C /* NetworkManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NetworkManager.cpp; sourceTree = "<group>"; };
+		3989273A24007F0500099F3C /* TrackersJSONServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TrackersJSONServer.cpp; sourceTree = "<group>"; };
+		3989273B24007F0500099F3C /* TerminalServer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TerminalServer.hpp; sourceTree = "<group>"; };
+		3989273C24007F0500099F3C /* TrackersServer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TrackersServer.hpp; sourceTree = "<group>"; };
+		3989273D24007F0500099F3C /* Core.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Core.hpp; sourceTree = "<group>"; };
+		3989273E24007F0500099F3C /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		3989274024007F0500099F3C /* LayoutEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LayoutEngine.cpp; sourceTree = "<group>"; };
+		3989274224007F0500099F3C /* Screen.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Screen.hpp; sourceTree = "<group>"; };
+		3989274324007F0500099F3C /* Layout.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Layout.hpp; sourceTree = "<group>"; };
+		3989274424007F0500099F3C /* Device.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Device.hpp; sourceTree = "<group>"; };
+		3989274524007F0500099F3C /* LayoutEngine.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LayoutEngine.hpp; sourceTree = "<group>"; };
+		398927502400889B00099F3C /* libpb-common.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = "libpb-common.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3989275D2400899A00099F3C /* libboost_program_options.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libboost_program_options.dylib; path = ../../../../../../usr/local/Cellar/boost/1.72.0/lib/libboost_program_options.dylib; sourceTree = "<group>"; };
+		39892760240089AA00099F3C /* libprotobuf.22.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libprotobuf.22.dylib; path = ../../../../../../usr/local/Cellar/protobuf/3.11.4/lib/libprotobuf.22.dylib; sourceTree = "<group>"; };
+		3989276C24008A4100099F3C /* libpb-common.a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = "libpb-common.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3989276F24008A4800099F3C /* libnetwork.a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libnetwork.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3989277224008A4F00099F3C /* libcommon.a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libcommon.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3989277524008B2000099F3C /* libprotobuf.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libprotobuf.a; path = ../../../../../../usr/local/Cellar/protobuf/3.11.4/lib/libprotobuf.a; sourceTree = "<group>"; };
+		3989277724008B3000099F3C /* libboost_program_options.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_program_options.a; path = ../../../../../../usr/local/Cellar/boost/1.72.0/lib/libboost_program_options.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +88,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				397B3C7424008BAF005AD8A9 /* libnetwork.a in Frameworks */,
+				397B3C7124008BA7005AD8A9 /* libcommon.a in Frameworks */,
+				3989277824008B3000099F3C /* libboost_program_options.a in Frameworks */,
+				397B3C7624008BB3005AD8A9 /* libpb-common.a in Frameworks */,
+				3989277624008B2000099F3C /* libprotobuf.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +104,7 @@
 			children = (
 				3989272524007EC300099F3C /* pb-master */,
 				3989272424007EC300099F3C /* Products */,
+				3989274F2400889B00099F3C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,9 +119,84 @@
 		3989272524007EC300099F3C /* pb-master */ = {
 			isa = PBXGroup;
 			children = (
-				3989272624007EC300099F3C /* main.cpp */,
+				397B3C7824008BC9005AD8A9 /* pb-master.entitlements */,
+				3989273224007F0500099F3C /* Core */,
+				3989273F24007F0500099F3C /* LayoutEngine */,
+				3989272D24007F0400099F3C /* main.cpp */,
+				3989273E24007F0500099F3C /* Makefile */,
+				3989272E24007F0400099F3C /* TrackingEngine */,
 			);
 			path = "pb-master";
+			sourceTree = "<group>";
+		};
+		3989272E24007F0400099F3C /* TrackingEngine */ = {
+			isa = PBXGroup;
+			children = (
+				3989272F24007F0400099F3C /* TrackingEngine.cpp */,
+				3989273024007F0400099F3C /* TrackingEngineDelegate.hpp */,
+				3989273124007F0400099F3C /* TrackingEngine.hpp */,
+			);
+			path = TrackingEngine;
+			sourceTree = "<group>";
+		};
+		3989273224007F0500099F3C /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				3989273324007F0500099F3C /* Core.cpp */,
+				3989273D24007F0500099F3C /* Core.hpp */,
+				3989273424007F0500099F3C /* Network */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		3989273424007F0500099F3C /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				3989273524007F0500099F3C /* TerminalServer.cpp */,
+				3989273624007F0500099F3C /* TrackersServer.cpp */,
+				3989273724007F0500099F3C /* NetworkManager.hpp */,
+				3989273824007F0500099F3C /* TrackersJSONServer.hpp */,
+				3989273924007F0500099F3C /* NetworkManager.cpp */,
+				3989273A24007F0500099F3C /* TrackersJSONServer.cpp */,
+				3989273B24007F0500099F3C /* TerminalServer.hpp */,
+				3989273C24007F0500099F3C /* TrackersServer.hpp */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		3989273F24007F0500099F3C /* LayoutEngine */ = {
+			isa = PBXGroup;
+			children = (
+				3989274024007F0500099F3C /* LayoutEngine.cpp */,
+				3989274124007F0500099F3C /* Structs */,
+				3989274524007F0500099F3C /* LayoutEngine.hpp */,
+			);
+			path = LayoutEngine;
+			sourceTree = "<group>";
+		};
+		3989274124007F0500099F3C /* Structs */ = {
+			isa = PBXGroup;
+			children = (
+				3989274224007F0500099F3C /* Screen.hpp */,
+				3989274324007F0500099F3C /* Layout.hpp */,
+				3989274424007F0500099F3C /* Device.hpp */,
+			);
+			path = Structs;
+			sourceTree = "<group>";
+		};
+		3989274F2400889B00099F3C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3989277724008B3000099F3C /* libboost_program_options.a */,
+				3989277524008B2000099F3C /* libprotobuf.a */,
+				3989277224008A4F00099F3C /* libcommon.a */,
+				3989276F24008A4800099F3C /* libnetwork.a */,
+				3989276C24008A4100099F3C /* libpb-common.a */,
+				39892760240089AA00099F3C /* libprotobuf.22.dylib */,
+				3989275D2400899A00099F3C /* libboost_program_options.dylib */,
+				398927502400889B00099F3C /* libpb-common.dylib */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -72,6 +209,7 @@
 				3989271F24007EC300099F3C /* Sources */,
 				3989272024007EC300099F3C /* Frameworks */,
 				3989272124007EC300099F3C /* CopyFiles */,
+				397B3C7324008BA7005AD8A9 /* Embed Libraries */,
 			);
 			buildRules = (
 			);
@@ -119,7 +257,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3989272724007EC300099F3C /* main.cpp in Sources */,
+				3989274C24007F0500099F3C /* TrackersJSONServer.cpp in Sources */,
+				3989274824007F0500099F3C /* Core.cpp in Sources */,
+				3989274A24007F0500099F3C /* TrackersServer.cpp in Sources */,
+				3989274724007F0500099F3C /* TrackingEngine.cpp in Sources */,
+				3989274924007F0500099F3C /* TerminalServer.cpp in Sources */,
+				3989274B24007F0500099F3C /* NetworkManager.cpp in Sources */,
+				3989274624007F0500099F3C /* main.cpp in Sources */,
+				3989274E24007F0500099F3C /* LayoutEngine.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,7 +277,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -169,6 +314,8 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
+					PB_MASTER,
+					"LOG_LEVEL=1",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -190,7 +337,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -222,6 +369,10 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					PB_MASTER,
+					"LOG_LEVEL=3",
+				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -238,20 +389,34 @@
 		3989272B24007EC300099F3C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "pb-master/pb-master.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KJ993GM677;
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib,
+					/usr/local/Cellar/boost/1.72.0/lib,
+					/usr/local/Cellar/protobuf/3.11.4/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SYSTEM_HEADER_SEARCH_PATHS = /usr/local/include;
 			};
 			name = Debug;
 		};
 		3989272C24007EC300099F3C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "pb-master/pb-master.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KJ993GM677;
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib,
+					/usr/local/Cellar/boost/1.72.0/lib,
+					/usr/local/Cellar/protobuf/3.11.4/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SYSTEM_HEADER_SEARCH_PATHS = /usr/local/include;
 			};
 			name = Release;
 		};
