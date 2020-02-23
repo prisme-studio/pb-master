@@ -26,7 +26,7 @@ using namespace network;
 
 class TrackersServer: public Server<> {
 public:
-	TrackersServer(): Server(serverPortTracker, discoveryPortTracker, "tracker") {}
+	TrackersServer(const std::string &interface): Server(serverPortTracker, discoveryPortTracker, "tracker", interface) {}
 
 	TrackingEngine * trackingEngine;
 

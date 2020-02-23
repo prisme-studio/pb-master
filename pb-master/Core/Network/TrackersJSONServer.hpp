@@ -27,7 +27,7 @@ class TrackingEngine;
 
 class TrackersJSONServer: public Server<messages::RawBody> {
 public:
-	TrackersJSONServer(): Server(serverPortTrackerJSON, discoveryPortTrackerJSON, "tracker") {
+	TrackersJSONServer(const std::string &interface): Server(serverPortTrackerJSON, discoveryPortTrackerJSON, "tracker", interface) {
 		Server::setEmissionFormat(json);
 	}
 

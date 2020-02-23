@@ -11,10 +11,10 @@ namespace pb {
 namespace master {
 
 NetworkManager::NetworkManager(const std::string &interface):
-_trackersServer(),
-_trackersServerJSON(),
-_receiversServer(serverPortReceiver, discoveryPortReceiver, "receiver"),
-_terminalServer()
+_trackersServer(interface),
+_trackersServerJSON(interface),
+_receiversServer(serverPortReceiver, discoveryPortReceiver, "receiver", interface),
+_terminalServer(interface)
 {}
 
 void NetworkManager::startActivities() {

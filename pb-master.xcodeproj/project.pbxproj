@@ -152,13 +152,13 @@
 		3989273424007F0500099F3C /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				3989273524007F0500099F3C /* TerminalServer.cpp */,
-				3989273624007F0500099F3C /* TrackersServer.cpp */,
-				3989273724007F0500099F3C /* NetworkManager.hpp */,
-				3989273824007F0500099F3C /* TrackersJSONServer.hpp */,
 				3989273924007F0500099F3C /* NetworkManager.cpp */,
-				3989273A24007F0500099F3C /* TrackersJSONServer.cpp */,
+				3989273724007F0500099F3C /* NetworkManager.hpp */,
+				3989273524007F0500099F3C /* TerminalServer.cpp */,
 				3989273B24007F0500099F3C /* TerminalServer.hpp */,
+				3989273A24007F0500099F3C /* TrackersJSONServer.cpp */,
+				3989273824007F0500099F3C /* TrackersJSONServer.hpp */,
+				3989273624007F0500099F3C /* TrackersServer.cpp */,
 				3989273C24007F0500099F3C /* TrackersServer.hpp */,
 			);
 			path = Network;
@@ -226,7 +226,7 @@
 		3989271B24007EC300099F3C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1120;
+				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = Prisme;
 				TargetAttributes = {
 					3989272224007EC300099F3C = {
@@ -315,13 +315,15 @@
 					"DEBUG=1",
 					"$(inherited)",
 					PB_MASTER,
-					"LOG_LEVEL=1",
+					"LOG_LEVEL=0",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -378,6 +380,8 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -389,7 +393,9 @@
 		3989272B24007EC300099F3C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_USE_OPTIMIZATION_PROFILE = NO;
 				CODE_SIGN_ENTITLEMENTS = "pb-master/pb-master.entitlements";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KJ993GM677;
 				ENABLE_HARDENED_RUNTIME = NO;
@@ -397,6 +403,10 @@
 					/usr/local/lib,
 					/usr/local/Cellar/boost/1.72.0/lib,
 					/usr/local/Cellar/protobuf/3.11.4/lib,
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-lstdc++fs",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SYSTEM_HEADER_SEARCH_PATHS = /usr/local/include;
@@ -406,7 +416,9 @@
 		3989272C24007EC300099F3C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_USE_OPTIMIZATION_PROFILE = NO;
 				CODE_SIGN_ENTITLEMENTS = "pb-master/pb-master.entitlements";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KJ993GM677;
 				ENABLE_HARDENED_RUNTIME = NO;
@@ -414,6 +426,10 @@
 					/usr/local/lib,
 					/usr/local/Cellar/boost/1.72.0/lib,
 					/usr/local/Cellar/protobuf/3.11.4/lib,
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-lstdc++fs",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SYSTEM_HEADER_SEARCH_PATHS = /usr/local/include;

@@ -122,7 +122,6 @@ void TrackingEngine::parseBodiesBuffer() {
 
 		// We only handle tracked users
 		if(rawBody->state != RawBody::State::tracked) {
-			LOG_ERROR("BODY NOT TRACKED " + std::to_string(rand()));
 			// remove reference to this rawBody in Bodies if needed
 			removeRawBodyReference(rawBody);
 			continue;
@@ -221,7 +220,7 @@ void TrackingEngine::parseBodies() {
 			continue;
 
 		// Check the body inactivity count
-		if(body->inactivityCount > 15) {
+		if(body->inactivityCount > TRACKING_ENGINE_INACTIVITY_THRESHOLD) {
 			body->isValid = false;
 			continue;
 		}

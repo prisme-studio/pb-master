@@ -24,7 +24,7 @@ class LayoutEngine;
 class TerminalServer: public Server<> {
 public:
 
-	TerminalServer(): Server<network::messages::Datagram>(serverPortTerminal, discoveryPortTerminal, "terminal") {}
+	TerminalServer(const std::string &interface): Server<network::messages::Datagram>(serverPortTerminal, discoveryPortTerminal, "terminal", interface) {}
 
 	/// Handle to the layout engine
 	LayoutEngine * layoutEngine = nullptr;
