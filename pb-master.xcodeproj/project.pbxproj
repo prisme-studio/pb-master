@@ -404,10 +404,8 @@
 					/usr/local/Cellar/boost/1.72.0/lib,
 					/usr/local/Cellar/protobuf/3.11.4/lib,
 				);
-				OTHER_CPLUSPLUSFLAGS = (
-					"$(OTHER_CFLAGS)",
-					"-lstdc++fs",
-				);
+				OTHER_CFLAGS = "";
+				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SYSTEM_HEADER_SEARCH_PATHS = /usr/local/include;
 			};
@@ -427,10 +425,8 @@
 					/usr/local/Cellar/boost/1.72.0/lib,
 					/usr/local/Cellar/protobuf/3.11.4/lib,
 				);
-				OTHER_CPLUSPLUSFLAGS = (
-					"$(OTHER_CFLAGS)",
-					"-lstdc++fs",
-				);
+				OTHER_CFLAGS = "";
+				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SYSTEM_HEADER_SEARCH_PATHS = /usr/local/include;
 			};
