@@ -18,10 +18,10 @@ void TrackersJSONServer::socketDidOpen(BaseSocket * socket) {
 	Server::socketDidOpen(socket);
 }
 
-void TrackersJSONServer::socketDidReceive(BaseSocket * socket, protobuf::Message * aMessage) {
+void TrackersJSONServer::socketDidReceive(BaseSocket * socket, const protobuf::Message * aMessage) {
 	Server::socketDidReceive(socket, aMessage);
 
-	messages::RawBody * messageBody = dynamic_cast<messages::RawBody *>(aMessage);
+	const messages::RawBody * messageBody = dynamic_cast<const messages::RawBody *>(aMessage);
 
 	try{
 		trackingEngine->onRawBody(new RawBody(*messageBody));

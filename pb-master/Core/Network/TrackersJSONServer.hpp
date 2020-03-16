@@ -40,7 +40,7 @@ protected:
 
 private:
 
-	void socketDidReceive(BaseSocket * socket, protobuf::Message * datagram) override;
+	void socketDidReceive(BaseSocket * socket, const protobuf::Message * datagram) override;
 };
 
 } /* ::master */

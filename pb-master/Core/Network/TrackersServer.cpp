@@ -17,17 +17,17 @@ void TrackersServer::socketDidOpen(BaseSocket * socket) {
 	Server::socketDidOpen(socket);
 }
 
-void TrackersServer::socketDidReceive(BaseSocket * socket, protobuf::Message * aMessage) {
+void TrackersServer::socketDidReceive(BaseSocket * socket, const protobuf::Message * aMessage) {
 	Server::socketDidReceive(socket, aMessage);
 
-	Datagram * datagram = dynamic_cast<Datagram *>(aMessage);
+	const Datagram * datagram = dynamic_cast<const Datagram *>(aMessage);
 	DatagramType datagramType = static_cast<DatagramType>(datagram->type());
 
 	// Dispatch based on the datagram type
 	switch (datagramType) {
 			// Tracker
 		case DatagramType::rawBody:
-			onBodyStream(datagram->mutable_data()); break;
+			onBodyStream(datagram->data()); break;
 		default:
 			LOG_WARN("Received unimplemented datagram type : " + std::to_string(datagramType));
 	}
@@ -39,12 +39,12 @@ void TrackersServer::socketDidClose(BaseSocket * socket) {
 	Server::socketDidClose(socket);
 }
 
-void TrackersServer::onBodyStream(const protobuf::Any * data) {
+void TrackersServer::onBodyStream(const protobuf::Any &data) {
 	// Decode the data
 	messages::RawBody messageBody;
 
 	try {
-		data->UnpackTo(&messageBody);
+		data.UnpackTo(&messageBody);
 	} catch (protobuf::FatalException * e) {
 		LOG_ERROR("Error while deserializing a body. Ignoring...");
 		LOG_DEBUG(e->message());

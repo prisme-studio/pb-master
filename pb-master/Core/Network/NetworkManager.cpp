@@ -34,9 +34,9 @@ void NetworkManager::sendToTerminal(protobuf::Message * message) {
 	_terminalServer.sendToAll(message);
 }
 
-void NetworkManager::
-sendToReceivers(protobuf::Message * message) {
+void NetworkManager::sendToReceivers(protobuf::Message * message) {
 	_receiversServer.sendToAll(message);
+	
 }
 
 } /* ::master */

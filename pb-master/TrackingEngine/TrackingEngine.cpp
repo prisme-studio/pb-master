@@ -156,6 +156,8 @@ void TrackingEngine::parseBodiesBuffer() {
 		std::pair<Body *, SCALAR> closestBody = getClosestBodyFrom(skeleton);
 
 		if(closestBody.first == nullptr || closestBody.second > TRACKING_ENGINE_MERGE_DISTANCE) {
+			delete skeleton;
+			
 			LOG_DEBUG("Tracking new body");
 			// Found no matching user, this is a new body
 			Body * body = new Body(rawBody);

@@ -38,7 +38,9 @@ protected:
 
 private:
 
-	void socketDidReceive(BaseSocket * socket, protobuf::Message * datagram) override;
+	void socketDidReceive(BaseSocket * socket, const protobuf::Message * datagram) override;
+
+	void socketDidSendAsynchronously(BaseSocket * socket, const protobuf::Message * datagram) override;
 
 	void onStatusRequest(BaseSocket * socket);
 
@@ -46,20 +48,19 @@ private:
 
 	void onLayoutList(BaseSocket * socket);
 
-	void onLayoutCreate(protobuf::Any * data, BaseSocket * socket);
+	void onLayoutCreate(const protobuf::Any &ata, BaseSocket * socket);
 
-	void onLayoutOpen(protobuf::Any * data, BaseSocket * socket);
+	void onLayoutOpen(const protobuf::Any &data, BaseSocket * socket);
 
 	void onLayoutClose(BaseSocket * socket);
 
-	void onLayoutRename(protobuf::Any * data, BaseSocket * socket);
+	void onLayoutRename(const protobuf::Any &data, BaseSocket * socket);
 
-	void onLayoutUpdate(protobuf::Any * data, BaseSocket * socket);
+	void onLayoutUpdate(const protobuf::Any &data, BaseSocket * socket);
 
-	void onLayoutDelete(protobuf::Any * data, BaseSocket * socket);
+	void onLayoutDelete(const protobuf::Any &data, BaseSocket * socket);
 
-
-	void onCalibrationSet(protobuf::Any * data);
+	void onCalibrationSet(const protobuf::Any &data);
 };
 
 } /* ::master */

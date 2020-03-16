@@ -37,10 +37,10 @@ void TerminalServer::socketDidClose(BaseSocket * closedSocket) {
 	}
 }
 
-void TerminalServer::socketDidReceive(BaseSocket * socket, protobuf::Message * aMessage) {
+void TerminalServer::socketDidReceive(BaseSocket * socket, const protobuf::Message * aMessage) {
 	// LOG_DEBUG("Received a datagram");
 
-	Datagram * datagram = dynamic_cast<Datagram *>(aMessage);
+	const Datagram * datagram = dynamic_cast<const Datagram *>(aMessage);
 	DatagramType dType = static_cast<DatagramType>(datagram->type());
 
 	// Dispatch the datagram
@@ -54,32 +54,36 @@ void TerminalServer::socketDidReceive(BaseSocket * socket, protobuf::Message * a
 			onLayoutList(socket);
 			break;
 		case DatagramType::layoutCreate:
-			onLayoutCreate(datagram->mutable_data(), socket);
+			onLayoutCreate(datagram->data(), socket);
 			break;
 		case DatagramType::layoutOpen:
-			onLayoutOpen(datagram->mutable_data(), socket);
+			onLayoutOpen(datagram->data(), socket);
 			break;
 		case DatagramType::layoutClose:
 			onLayoutClose(socket);
 			break;
 		case DatagramType::layoutRename:
-			onLayoutRename(datagram->mutable_data(), socket);
+			onLayoutRename(datagram->data(), socket);
 			break;
 		case DatagramType::layoutUpdate:
-			onLayoutUpdate(datagram->mutable_data(), socket);
+			onLayoutUpdate(datagram->data(), socket);
 			break;
 		case DatagramType::layoutDelete:
-			onLayoutDelete(datagram->mutable_data(), socket);
+			onLayoutDelete(datagram->data(), socket);
 			break;
 
 			// Calibration
 		case DatagramType::calibrationSet:
-			onCalibrationSet(datagram->mutable_data());
+			onCalibrationSet(datagram->data());
 			break;
 		default:
 			LOG_WARN("Received an unimplemented datagram type : " + std::to_string(dType));
 	}
 
+	delete datagram;
+}
+
+void TerminalServer::socketDidSendAsynchronously(BaseSocket *, const protobuf::Message * datagram) {
 	delete datagram;
 }
 
@@ -122,14 +126,14 @@ void TerminalServer::onLayoutList(BaseSocket * socket) {
 	socket->send(datagram);
 }
 
-void TerminalServer::onLayoutCreate(google::protobuf::Any *data, BaseSocket *socket) {
+void TerminalServer::onLayoutCreate(const google::protobuf::Any &data, BaseSocket *socket) {
 	if(layoutEngine == nullptr) {
 		LOG_ERROR("Cannot perform layout operations if not layout engine is defined.");
 		return;
 	}
 
 	messages::LayoutName layoutNameMessage;
-	data->UnpackTo(&layoutNameMessage);
+	data.UnpackTo(&layoutNameMessage);
 
 	layout::Layout * layout = layoutEngine->createLayout(layoutNameMessage.name());
 
@@ -139,14 +143,14 @@ void TerminalServer::onLayoutCreate(google::protobuf::Any *data, BaseSocket *soc
 	socket->send(datagram);
 }
 
-void TerminalServer::onLayoutOpen(google::protobuf::Any *data, BaseSocket *socket) {
+void TerminalServer::onLayoutOpen(const google::protobuf::Any &data, BaseSocket *socket) {
 	if(layoutEngine == nullptr) {
 		LOG_ERROR("Cannot perform layout operations if not layout engine is defined.");
 		return;
 	}
 
 	messages::LayoutName layoutNameMessage;
-	data->UnpackTo(&layoutNameMessage);
+	data.UnpackTo(&layoutNameMessage);
 
 	layout::Layout * layout = layoutEngine->openLayout(layoutNameMessage.name());
 
@@ -165,28 +169,28 @@ void TerminalServer::onLayoutClose(BaseSocket *) {
 	// No response here
 }
 
-void TerminalServer::onLayoutRename(protobuf::Any *data, BaseSocket *) {
+void TerminalServer::onLayoutRename(const protobuf::Any &data, BaseSocket *) {
 	if(layoutEngine == nullptr) {
 		LOG_ERROR("Cannot perform layout operations if not layout engine is defined.");
 		return;
 	}
 
 	messages::LayoutName layoutNameMessage;
-	data->UnpackTo(&layoutNameMessage);
+	data.UnpackTo(&layoutNameMessage);
 
 	layoutEngine->renameLayout(layoutNameMessage.name());
 
 	// No response here
 }
 
-void TerminalServer::onLayoutUpdate(protobuf::Any *data, BaseSocket *) {
+void TerminalServer::onLayoutUpdate(const protobuf::Any &data, BaseSocket *) {
 	if(layoutEngine == nullptr) {
 		LOG_ERROR("Cannot perform layout operations if not layout engine is defined.");
 		return;
 	}
 
 	messages::Layout * layoutMessage = new messages::Layout();
-	data->UnpackTo(layoutMessage);
+	data.UnpackTo(layoutMessage);
 
 	layout::Layout * layout = new layout::Layout(layoutMessage);
 
@@ -195,7 +199,7 @@ void TerminalServer::onLayoutUpdate(protobuf::Any *data, BaseSocket *) {
 	// No response here
 }
 
-void TerminalServer::onLayoutDelete(google::protobuf::Any *data, BaseSocket *socket) {
+void TerminalServer::onLayoutDelete(const google::protobuf::Any &data, BaseSocket *socket) {
 	if(layoutEngine == nullptr) {
 		LOG_ERROR("Cannot perform layout operations if not layout engine is defined.");
 		return;
@@ -203,7 +207,7 @@ void TerminalServer::onLayoutDelete(google::protobuf::Any *data, BaseSocket *soc
 
 
 	messages::LayoutName layoutNameMessage;
-	data->UnpackTo(&layoutNameMessage);
+	data.UnpackTo(&layoutNameMessage);
 
 	std::vector<std::string> layoutsList = layoutEngine->deleteLayout(layoutNameMessage.name());
 
@@ -219,9 +223,9 @@ void TerminalServer::onLayoutDelete(google::protobuf::Any *data, BaseSocket *soc
 	socket->send(datagram);
 }
 
-void TerminalServer::onCalibrationSet(protobuf::Any * data) {
+void TerminalServer::onCalibrationSet(const protobuf::Any &data) {
 	messages::CalibrationDevices devices;
-	data->UnpackTo(&devices);
+	data.UnpackTo(&devices);
 
 	if(trackingEngine != nullptr) {
 		trackingEngine->setCalibrationDevices(devices.devicea(), devices.deviceb());

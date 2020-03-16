@@ -73,9 +73,7 @@ void Core::trackingEngineFinishedCycle(TrackingEngine *) {
 		_networkManager.sendToReceivers(receiversDatagram);
 		anyMessage->Clear();
 
-		messages::PartialBody * bodyMessage = trackedBodies->add_bodies();
-		bodyMessage->CopyFrom(*message);
-
+		trackedBodies->add_bodies()->CopyFrom(*message);
 		delete message;
 	}
 
